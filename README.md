@@ -4,6 +4,10 @@ Open dataset of support services for vulnerable people in Australia.
 
 Free to access. Free to build on. Free forever.
 
+<!-- PIPELINE_STATUS_START -->
+**Last updated**: Not yet populated. Run the pipeline to fetch data.
+<!-- PIPELINE_STATUS_END -->
+
 ## Structure
 
 ```

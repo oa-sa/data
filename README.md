@@ -1,6 +1,6 @@
 # oa-sa/data
 
-Open dataset of support services for vulnerable people in Australia.
+Open dataset of support services across Australia.
 
 Free to access. Free to build on. Free forever.
 

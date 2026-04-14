@@ -1,0 +1,86 @@
+cff-version: 1.2.0
+title: "OASA: Support Services Data Across Australia"
+message: >-
+  If you use this dataset, please cite it using the metadata below
+  and attribute the original data sources listed in SOURCES.md.
+type: dataset
+version: 1.0.0
+date-released: "2026-04-14"
+license: CC0-1.0
+url: "https://github.com/oa-sa/data"
+repository-code: "https://github.com/oa-sa"
+keywords:
+  - australia
+  - social-services
+  - community-services
+  - support-services
+  - open-data
+abstract: >-
+  An open dataset of 24,000+ support services across Australia,
+  built from government open data portals and OpenStreetMap.
+  Covers food relief, housing, health, employment, legal aid,
+  community services, and more across all states and territories.
+  Free to access, free to build on, free forever.
+
+references:
+  - title: "Australian Government Open Data Portal (data.gov.au)"
+    type: data
+    url: "https://data.gov.au"
+    license: CC-BY-3.0-AU
+    notes: >-
+      Contains data from: Department of Social Services (Emergency Relief
+      Provider Outlets), Department of Employment and Workplace Relations
+      (Employment Services Provider Locations), Geoscience Australia
+      (Judicial Courts). Attribution required under CC-BY license.
+
+  - title: "Victoria State Government Open Data (discover.data.vic.gov.au)"
+    type: data
+    url: "https://discover.data.vic.gov.au"
+    license: CC-BY-4.0
+    notes: >-
+      Contains data from: City of Melbourne (Free and Cheap Support
+      Services), City of Casey (Emergency Food Relief Groups, Libraries,
+      Family Maternal Child Health Centres), City of Ballarat (Community
+      Food Activities, Community Centres, Kindergartens, Early Learning
+      Centres), VIC Planning and Community Development (Neighbourhood
+      Houses). Attribution required under CC-BY license.
+
+  - title: "Queensland Government Open Data (data.qld.gov.au)"
+    type: data
+    url: "https://www.data.qld.gov.au"
+    license: CC-BY-4.0
+    notes: >-
+      Contains data from: QLD Customer Services (Government Service Counter
+      Locations), QLD Housing and Public Works (Housing Service Centres,
+      Housing Service Finder), Queensland Health (BreastScreen Locations,
+      Hepatitis C Centres), QLD Justice (Victim Support Services, Dispute
+      Resolution Centres), QLD Families/Child Safety (DCCSDS Contacts,
+      Youth Justice Centres). Attribution required under CC-BY license.
+
+  - title: "South Australia Government Open Data (data.sa.gov.au)"
+    type: data
+    url: "https://data.sa.gov.au"
+    license: CC-BY-3.0-AU
+    notes: >-
+      Contains data from: SA Community/Connecting Up Inc (SA Community
+      Directory 2021), SA Health (Child and Family Health Service Centre
+      Locations). Attribution required under CC-BY license.
+
+  - title: "Tasmania Government Open Data"
+    type: data
+    url: "https://data.gov.au"
+    license: CC-BY-4.0
+    notes: >-
+      Contains data from: Department of Premier and Cabinet Tasmania
+      (Service Tasmania Shop Locations). Attribution required under
+      CC-BY license.
+
+  - title: "OpenStreetMap"
+    type: data
+    url: "https://www.openstreetmap.org"
+    license: ODbL-1.0
+    notes: >-
+      Contains data from OpenStreetMap contributors. Social facilities,
+      community centres, NGOs, and charities mapped across Australia.
+      Data extracted via Geofabrik Australia extract.
+      (c) OpenStreetMap contributors. Attribution required under ODbL.

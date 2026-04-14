@@ -1,0 +1,113 @@
+{
+  "name": "oasa-services",
+  "title": "OASA: Support Services Data Across Australia",
+  "description": "An open dataset of support services across Australia, built from government open data portals and OpenStreetMap. Includes community services, food relief, housing, health, employment, legal aid, and more.",
+  "homepage": "https://github.com/oa-sa/data",
+  "version": "1.0.0",
+  "created": "2026-04-13",
+  "licenses": [
+    {
+      "name": "CC0-1.0",
+      "path": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "title": "CC0 1.0 Universal (Public Domain Dedication)"
+    }
+  ],
+  "contributors": [
+    {
+      "title": "Open Australian Services Archive (OASA)",
+      "role": "publisher",
+      "path": "https://github.com/oa-sa"
+    }
+  ],
+  "keywords": [
+    "australia",
+    "social-services",
+    "community-services",
+    "support-services",
+    "open-data",
+    "food-relief",
+    "housing",
+    "mental-health",
+    "employment",
+    "legal-aid",
+    "health-services",
+    "openstreetmap"
+  ],
+  "sources": [
+    {
+      "title": "Australian Government Open Data (data.gov.au)",
+      "path": "https://data.gov.au",
+      "licenses": [{"name": "CC-BY-3.0-AU"}]
+    },
+    {
+      "title": "Victoria State Government Open Data (discover.data.vic.gov.au)",
+      "path": "https://discover.data.vic.gov.au",
+      "licenses": [{"name": "CC-BY-4.0"}]
+    },
+    {
+      "title": "Queensland Government Open Data (data.qld.gov.au)",
+      "path": "https://www.data.qld.gov.au",
+      "licenses": [{"name": "CC-BY-4.0"}]
+    },
+    {
+      "title": "South Australia Government Open Data (data.sa.gov.au)",
+      "path": "https://data.sa.gov.au",
+      "licenses": [{"name": "CC-BY-3.0-AU"}]
+    },
+    {
+      "title": "OpenStreetMap",
+      "path": "https://www.openstreetmap.org",
+      "licenses": [{"name": "ODbL-1.0"}]
+    }
+  ],
+  "resources": [
+    {
+      "name": "services-csv",
+      "path": "combined/services.csv",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "encoding": "utf-8",
+      "schema": {
+        "fields": [
+          {"name": "id", "type": "string", "description": "Unique record identifier"},
+          {"name": "name", "type": "string", "description": "Name of the service or organisation", "constraints": {"required": true}},
+          {"name": "description", "type": "string", "description": "What the service provides"},
+          {"name": "category", "type": "string", "description": "Primary service category", "constraints": {"enum": ["food", "housing", "health", "mental_health", "alcohol_drugs", "legal", "financial", "employment", "education", "disability", "family", "community", "information", "transport", "personal_care", "technology", "other"]}},
+          {"name": "address", "type": "string", "description": "Street address"},
+          {"name": "suburb", "type": "string", "description": "Suburb or locality"},
+          {"name": "state", "type": "string", "description": "Australian state or territory", "constraints": {"enum": ["ACT", "NSW", "NT", "QLD", "SA", "TAS", "VIC", "WA", ""]}},
+          {"name": "postcode", "type": "string", "description": "4-digit Australian postcode"},
+          {"name": "latitude", "type": "number", "description": "Latitude in decimal degrees"},
+          {"name": "longitude", "type": "number", "description": "Longitude in decimal degrees"},
+          {"name": "phone", "type": "string", "description": "Phone number"},
+          {"name": "email", "type": "string", "description": "Email address"},
+          {"name": "website", "type": "string", "description": "Website URL"},
+          {"name": "hours", "type": "string", "description": "Opening hours"},
+          {"name": "eligibility", "type": "string", "description": "Who can access the service"},
+          {"name": "cost", "type": "string", "description": "Cost of the service"},
+          {"name": "source_id", "type": "string", "description": "Identifier for the data source"},
+          {"name": "source_name", "type": "string", "description": "Name of the original dataset"},
+          {"name": "source_organisation", "type": "string", "description": "Organisation that published the data"},
+          {"name": "source_jurisdiction", "type": "string", "description": "Jurisdiction of the source"},
+          {"name": "source_license", "type": "string", "description": "License of the source data"},
+          {"name": "source_url", "type": "string", "description": "URL to the original dataset"},
+          {"name": "source_date", "type": "date", "description": "Date the data was sourced"},
+          {"name": "quality", "type": "string", "description": "Record completeness: complete, partial, or minimal", "constraints": {"enum": ["complete", "partial", "minimal"]}}
+        ]
+      }
+    },
+    {
+      "name": "services-json",
+      "path": "combined/services.json",
+      "format": "json",
+      "mediatype": "application/json",
+      "encoding": "utf-8"
+    },
+    {
+      "name": "services-sqlite",
+      "path": "combined/services.db",
+      "format": "sqlite",
+      "mediatype": "application/x-sqlite3"
+    }
+  ]
+}

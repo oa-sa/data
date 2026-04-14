@@ -1,10 +1,9 @@
 # Data Sources and Attribution
 
-Data sourced from Australian government open data portals.
-Used under their respective Creative Commons licenses.
+Data sourced from OpenStreetMap via Geofabrik extract.
 
 ## Attribution
 
-- **OpenStreetMap contributors**, national, *OpenStreetMap Social Facilities*, Sourced on 14 April 2026, [Dataset URL](https://www.openstreetmap.org). License: ODbL
+- **OpenStreetMap contributors**, National, *Social Facilities, Community Centres, NGOs, Charities*, [openstreetmap.org](https://www.openstreetmap.org). License: ODbL (Open Database License)
 
-Last updated: 2026-04-14
+© OpenStreetMap contributors. Data available under the Open Database License.

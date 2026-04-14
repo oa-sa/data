@@ -1,6 +1,6 @@
 # Open Australian Services Archive (OASA)
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19564281.svg)](https://doi.org/10.5281/zenodo.19564281)
+[![DOI](https://zenodo.org/badge/1208538497.svg)](https://doi.org/10.5281/zenodo.19564281)
 
 Open dataset of support services across Australia.
 

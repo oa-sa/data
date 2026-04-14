@@ -36,6 +36,17 @@ These fields track where each record came from.
 | `source_license` | string | License identifier (e.g. CC-BY-4.0) |
 | `source_url` | string | URL to the original dataset |
 | `source_date` | string | Date the data was sourced (YYYY-MM-DD) |
+| `quality` | string | Record completeness: `complete` (has location + contact), `partial` (has one), `minimal` (has neither) |
+
+## Quality
+
+Each record is scored based on how useful it is for someone trying to find or contact a service:
+
+| Quality | Meaning | Typical % |
+|---------|---------|-----------|
+| `complete` | Has location (address or coordinates) AND contact info (phone, website, or email) | ~84% |
+| `partial` | Has either location OR contact info, but not both | ~15% |
+| `minimal` | Has neither — just a name and category | ~1% |
 
 ## Categories
 

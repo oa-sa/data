@@ -5,7 +5,7 @@ Open dataset of support services for vulnerable people in Australia.
 Free to access. Free to build on. Free forever.
 
 <!-- PIPELINE_STATUS_START -->
-**Last updated**: 14 April 2026 | **24202 services** from **5 state(s)**
+**Last updated**: 14 April 2026 | **22511 services** from **5 state(s)**
 <!-- PIPELINE_STATUS_END -->
 
 ## Structure

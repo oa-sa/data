@@ -4,13 +4,25 @@ All notable changes to this dataset will be documented in this file.
 
 ## [Unreleased]
 
+### Removed
+- ACNC Registered Charities source (65,078 records). The ACNC register is a
+  charity registry, not a services directory: zero contact info beyond a
+  website, zero coordinates, boilerplate descriptions, and thousands of
+  umbrella-entity duplicates (e.g. diocesan trustee corporations registered
+  many times per parish). Including it diluted signal with low-quality
+  records. Prioritising data quality over volume. May revisit using the AIS
+  Programs dataset later, which is service-shaped.
+
 ### Added
 - SA GP Plus Locations (8 records)
 - SA Private Hospitals (50 records)
 - GeoJSON zip fetch support in pipeline
 
 ### Changed
-- Total records: 24,440 to 24,498
+- Total records: 89,575 to 24,497 (net: -65,078 ACNC removal, +58 new sources)
+- Quality distribution now 84% complete / 16% partial / 0.3% minimal
+  (previously 68% / 28% / 4%)
+- Coordinate coverage now 39% (previously 11%)
 
 ## [v1.0.0] - 2026-04-14
 

@@ -7,7 +7,7 @@ Open dataset of support services across Australia.
 Free to access. Free to build on. Free forever.
 
 <!-- PIPELINE_STATUS_START -->
-**Last updated**: 17 April 2026 | **24497 services** from **5 state(s)** gov data + **1989** OSM records
+**Last updated**: 19 April 2026 | **24497 services** from **5 state(s)** gov data + **1989** OSM records
 <!-- PIPELINE_STATUS_END -->
 
 ## Structure

@@ -37,6 +37,7 @@ These fields track where each record came from.
 | `source_url` | string | URL to the original dataset |
 | `source_date` | string | Date the data was sourced (YYYY-MM-DD) |
 | `quality` | string | Record completeness: `complete` (has location + contact), `partial` (has one), `minimal` (has neither) |
+| `duplicate_of` | string | If set, the `id` of another record that represents the same service. Populated only when a duplicate is detected across sources. |
 
 ## Quality
 

@@ -26,8 +26,82 @@ SCHEMA_FIELDS = [
     "postcode", "latitude", "longitude", "phone", "email", "website",
     "hours", "eligibility", "cost", "source_id", "source_name",
     "source_organisation", "source_jurisdiction", "source_license",
-    "source_url", "source_date", "quality",
+    "source_url", "source_date", "quality", "duplicate_of",
 ]
+
+
+import re
+
+_DUP_STOPWORDS = {
+    "the", "inc", "incorporated", "ltd", "limited", "pty", "co", "and",
+    "australia", "australian",
+}
+
+
+def _norm_name(name):
+    s = (name or "").lower()
+    s = re.sub(r"[^a-z0-9 ]", " ", s)
+    tokens = [t for t in s.split() if t and t not in _DUP_STOPWORDS]
+    return " ".join(tokens)
+
+
+def _completeness_score(record):
+    """Higher = more complete. Used to pick a primary among duplicates."""
+    score = 0
+    for field in ("address", "phone", "email", "website", "latitude", "description", "hours"):
+        if record.get(field, "").strip():
+            score += 1
+    if record.get("quality") == "complete":
+        score += 2
+    elif record.get("quality") == "partial":
+        score += 1
+    return score
+
+
+def mark_duplicates(records):
+    """
+    Detect cross-source duplicates using (normalised_name, postcode) and
+    (normalised_name, lat/lng rounded to ~100m) as keys.
+
+    Writes record["duplicate_of"] = primary_id for non-primary copies.
+    Does not remove rows — preserves provenance.
+    """
+    by_pc = {}
+    by_geo = {}
+    # First pass: bucket records
+    for r in records:
+        name_norm = _norm_name(r.get("name", ""))
+        if not name_norm:
+            continue
+        pc = r.get("postcode", "").strip()
+        if pc:
+            by_pc.setdefault((name_norm, pc), []).append(r)
+        try:
+            lat = round(float(r["latitude"]), 3)
+            lng = round(float(r["longitude"]), 3)
+            by_geo.setdefault((name_norm, lat, lng), []).append(r)
+        except (ValueError, KeyError, TypeError):
+            pass
+
+    def resolve(group):
+        # Only mark duplicates when more than one source is involved
+        sources = {r["source_id"] for r in group}
+        if len(sources) < 2:
+            return
+        primary = max(group, key=_completeness_score)
+        for r in group:
+            if r["id"] != primary["id"] and not r.get("duplicate_of"):
+                r["duplicate_of"] = primary["id"]
+
+    for group in by_pc.values():
+        if len(group) > 1:
+            resolve(group)
+    for group in by_geo.values():
+        if len(group) > 1:
+            resolve(group)
+
+    marked = sum(1 for r in records if r.get("duplicate_of"))
+    print(f"  Marked {marked} duplicate records (kept in dataset with duplicate_of pointer)")
 
 
 def read_all_csvs():
@@ -195,7 +269,8 @@ def write_sqlite(records, path):
             source_license TEXT,
             source_url TEXT,
             source_date TEXT,
-            quality TEXT
+            quality TEXT,
+            duplicate_of TEXT
         )
     """)
 
@@ -274,6 +349,9 @@ def main():
             osm_counter += 1
 
     print(f"\nTotal: {len(records)} records")
+
+    print("\nDetecting cross-source duplicates...")
+    mark_duplicates(records)
 
     print("\nWriting combined output...")
     write_csv(records, os.path.join(COMBINED_DIR, "services.csv"))
